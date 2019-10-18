@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: loan-resource
+  cloud:
+    config:
+       uri: http://localhost:8888
+  main:
+    allow-bean-definition-overriding: true
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:8080/oauth/check_token
+    client:
+      client-id: clayton.tech
+      client-secret: pin
+
+server:
+  port: 9090
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://clayton.tech:astro2019@localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+swagger:
+  enabled: true
+
+app:
+  client:
+    id: clayton.tech
+    secret: pin
+
+host:
+  full:
+   dns:
+    auth:
+     link: http://localhost:8080/auth-server/oauth/token
+
+info:
+  build:
+    name: loan-resource
+
+feign:
+  oauth2:
+    enabled: true
+
+loan:
+  amount:
+    salary: 0.40
+    minimum: 300
+    maximum: 6500
+    rate: 0.09
+
+  period:
+    minimum: 300
+    maximum: 6500
